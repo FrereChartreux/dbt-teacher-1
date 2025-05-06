@@ -18,13 +18,19 @@ sources:
             description: the amount paid by the customer to purchase the product. revenue = quantity * selling_price
           - name: quanitity
             description: the quantity of products purchased for a given order
+            tests:
+              - unique:
+                  column_name: "(orders_id || '-' || pdt_id)"
 
-      - name: product
-        identifier: raw_gz_product
+      - name: products
+        identifier: raw_gz_products
         description: produst of Greenweez
         columns:
           - name: products_id
             description: Primary key
+            tests:
+              - unique
+              - not_null
           - name: purchase_price
             description: the purchase price of the product
 
@@ -34,6 +40,9 @@ sources:
         columns:
           - name: orders_id
             description: Primary key
+            tests:
+              - unique
+              - not_null
           - name: shipping_fee
             description: the price the customer pays for shipping
           - name: log_cost
