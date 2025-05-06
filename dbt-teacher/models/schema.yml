@@ -1,7 +1,9 @@
 version : 2
 
 sources:
+  #alias du dataset
   - name: raw
+  #chemin du dataset
     schema: gz_raw_data
     
     tables:
